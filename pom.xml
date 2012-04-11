@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<name>net.mschorn.sandbox</name>
+	<url>http://sandbox.mschorn.net/</url>
+	<groupId>net.mschorn</groupId>
+	<artifactId>sandbox</artifactId>
+	<version>0.1-SNAPSHOT</version>
+
+	<description />
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<issueManagement>
+		<system>github.com</system>
+		<url>https://github.com/mschorn/net.mschorn.sandbox/issues</url>
+	</issueManagement>
+
+	<scm>
+		<url>https://github.com/mschorn/net.mschorn.sandbox</url>
+		<connection>scm:git:git://github.com/mschorn/net.mschorn.sandbox.git</connection>
+		<developerConnection>scm:git:git@github.com:mschorn/net.mschorn.sandbox.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>github-project-site</id>
+			<url>gitsite:git@github.com/mschorn/net.mschorn.sandbox.git</url>
+		</site>
+	</distributionManagement>
+
+	<inceptionYear>2012</inceptionYear>
+
+	<developers>
+		<developer>
+			<id>mschorn</id>
+			<name>Michael Schorn</name>
+			<email>me@mschorn.net</email>
+			<url>http://mschorn.net</url>
+		</developer>
+	</developers>
+
+	<build>
+
+		<finalName>net.mschorn.sandbox</finalName>
+
+		<extensions>
+
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-provider-gitexe</artifactId>
+				<version>1.6</version>
+			</extension>
+
+			<extension>
+				<groupId>org.apache.maven.scm</groupId>
+				<artifactId>maven-scm-manager-plexus</artifactId>
+				<version>1.6</version>
+			</extension>
+
+			<extension>
+				<groupId>org.kathrynhuxtable.maven.wagon</groupId>
+				<artifactId>wagon-gitsite</artifactId>
+				<version>0.3.1</version>
+			</extension>
+
+		</extensions>
+
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.0</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<debug>true</debug>
+					<showDeprecation>true</showDeprecation>
+					<showWarnings>true</showWarnings>
+					<optimize>true</optimize>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<generateProjectInfo>false</generateProjectInfo>
+					<generateReports>false</generateReports>
+					<generateSitemap>false</generateSitemap>
+					<templateFile>${basedir}/src/site/empty.vm</templateFile>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>
