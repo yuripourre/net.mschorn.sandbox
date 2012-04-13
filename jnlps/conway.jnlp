@@ -3,13 +3,13 @@
 <jnlp spec="6.0+" codebase="http://sandbox.mschorn.net/" href="jnlps/conway.jnlp">
 
   <information>
-    <title>Game of Life</title> 
+    <title>Conway's Game of Life</title> 
     <vendor>mschorn.net</vendor> 
     <homepage href="http://sandbox.mschorn.net/"/> 
-    <description>simple gpu accelerated conway's game of life</description> 
+    <description>Simple GPU accelerated implementation of Conway's Game of Life.</description> 
   </information>
   
-  <update check="always" policy="always" />
+  <update check="always" policy="always"/>
   
   <resources> 
     <java version="1.7+" href="http://java.sun.com/products/autodl/j2se" initial-heap-size="64m" max-heap-size="128m"/> 
