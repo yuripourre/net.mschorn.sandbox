@@ -88,6 +88,8 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 import org.lwjgl.BufferUtils;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.ContextAttribs;
@@ -168,11 +170,21 @@ public final class Conway {
     private long                time           = 0;
 
 
-    public void init() throws LWJGLException, UnsupportedEncodingException {
+    public void init() throws UnsupportedEncodingException {
 
-        Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
-        Display.create(new PixelFormat(), new ContextAttribs(4, 2).withProfileCore(true).withForwardCompatible(true));
-        Display.setTitle("Conway's Game of Life");
+        try {
+
+            Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
+            Display.create(new PixelFormat(), new ContextAttribs(4, 2).withProfileCore(true).withForwardCompatible(true));
+            Display.setTitle("Conway's Game of Life");
+
+        } catch (final LWJGLException e) {
+
+            JOptionPane.showMessageDialog(null, "Your Graphics Card does not support all necessary functions.", "OpenGL 4.2 Context Creation", JOptionPane.ERROR_MESSAGE);
+
+            System.exit(1);
+
+        }
 
         display.init();
         conway.init();
@@ -456,7 +468,6 @@ public final class Conway {
 
             handle = glGenFramebuffers();
 
-
         }
 
 
@@ -483,7 +494,7 @@ public final class Conway {
     }
 
 
-    public static void main(final String[] args) throws LWJGLException, UnsupportedEncodingException {
+    public static void main(final String[] args) throws UnsupportedEncodingException {
 
         final Conway main = new Conway();
 
