@@ -4,8 +4,8 @@
 
   <information>
     <title>Conway's Game of Life</title> 
-    <vendor>mschorn.net</vendor> 
-    <homepage href="http://sandbox.mschorn.net/"/> 
+    <vendor>Michael Schorn</vendor> 
+    <homepage href="http://sandbox.mschorn.net"/> 
     <description>Simple GPU accelerated implementation of Conway's Game of Life.</description> 
   </information>
   
