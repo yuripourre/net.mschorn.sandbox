@@ -87,6 +87,10 @@ ul {
 	left: 15px;
 }
 
+#space {
+	height: 120px;
+}
+
 #bottom {
 	position: absolute;
 	bottom: 15px;
