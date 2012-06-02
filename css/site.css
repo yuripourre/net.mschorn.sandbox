@@ -88,16 +88,25 @@ ul {
 }
 
 #space {
-	height: 120px;
+	height: 40px;
 }
 
 #bottom {
 	position: absolute;
-	bottom: 15px;
-	left: 15px;
+	bottom: -70px;
+	left: -1px;
 	width: 521px;
+	height: 60px;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #eeeeee;
+}
+
+#imprintlink {
+	padding-left: 15px;
 }
 
 #imprint {
+	padding-left: 15px;
 	visibility: hidden;
 }
