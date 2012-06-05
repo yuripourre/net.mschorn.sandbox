@@ -3,7 +3,7 @@
 <jnlp spec="6.0+" codebase="http://sandbox.mschorn.net/" href="jnlps/basecode.jnlp">
 
   <information>
-    <title>Basecode</title> 
+    <title>[LWJGL] Basecode</title> 
     <vendor>Michael Schorn</vendor> 
     <homepage href="http://sandbox.mschorn.net"/> 
     <description>LWJGL basecode implementation.</description> 
