@@ -22,8 +22,15 @@
  * 
  */
 
+
 package net.mschorn.sandbox.lwjgl.basecode;
 
+import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
+import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
+import static org.lwjgl.opengl.GL11.glClear;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
 
 import javax.swing.JOptionPane;
 
@@ -31,7 +38,6 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.ContextAttribs;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.PixelFormat;
 
 
@@ -49,15 +55,15 @@ public final class Basecode {
 
     private void glInit() {
 
-        GL11.glEnable(GL11.GL_DEPTH_TEST);
+        glEnable(GL_DEPTH_TEST);
 
     }
 
 
     private void glDisplay() {
 
-        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
-        GL11.glLoadIdentity();
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glLoadIdentity();
 
     }
 
@@ -72,7 +78,7 @@ public final class Basecode {
         try {
 
             Display.setDisplayMode(new DisplayMode(WIDTH, HEIGHT));
-            Display.create(new PixelFormat(), new ContextAttribs(2, 1));
+            Display.create(new PixelFormat(), new ContextAttribs(1, 1));
             Display.setTitle("Basecode");
 
         } catch (final LWJGLException e) {
@@ -96,6 +102,7 @@ public final class Basecode {
             glDisplay();
 
             Display.update();
+
         }
 
         glDispose();
