@@ -3,7 +3,7 @@
 <jnlp spec="6.0+" codebase="http://sandbox.mschorn.net/" href="jnlps/conway.jnlp">
 
   <information>
-    <title>Conway's Game of Life</title> 
+    <title>[LWJGL] Conway's Game of Life</title> 
     <vendor>Michael Schorn</vendor> 
     <homepage href="http://sandbox.mschorn.net"/> 
     <description>GPU accelerated implementation of Conway's Game of Life.</description> 
