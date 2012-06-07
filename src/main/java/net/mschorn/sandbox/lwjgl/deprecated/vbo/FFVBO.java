@@ -121,7 +121,7 @@ public final class FFVBO {
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
 
         glInterleavedArrays(GL_C3F_V3F, 0, 0);
-        glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+        glDrawElements(GL_TRIANGLES, TRIANGLE_IBO.length, GL_UNSIGNED_INT, 0);
 
     }
 
@@ -146,7 +146,6 @@ public final class FFVBO {
             System.exit(1);
 
         }
-
 
     }
 
