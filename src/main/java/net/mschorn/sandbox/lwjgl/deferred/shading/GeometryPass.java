@@ -70,8 +70,8 @@ public final class GeometryPass {
     private static final String TEACUP_IMAGE_SPECULAR    = "net/mschorn/sandbox/resources/images/teacup.specular.png";
     private static final String TEACUP_GEOMETRY          = "net/mschorn/sandbox/resources/geometry/teacup.obj";
 
-    private static final String GEOMETRY_VS              = "geometry.vs";
-    private static final String GEOMETRY_FS              = "geometry.fs";
+    private static final String GEOMETRY_VS              = "geometry.vs.glsl";
+    private static final String GEOMETRY_FS              = "geometry.fs.glsl";
 
     private static final int    V_BUFFER_BINDING         = 0;
     private static final int    VN_BUFFER_BINDING        = 1;

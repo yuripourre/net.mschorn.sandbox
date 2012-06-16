@@ -60,8 +60,8 @@ import net.mschorn.sandbox.lwjgl.tools.texture.Texture;
 
 public final class LightPass {
 
-    private static final String LIGHT_VS      = "light.vs";
-    private static final String LIGHT_FS      = "light.fs";
+    private static final String LIGHT_VS      = "light.vs.glsl";
+    private static final String LIGHT_FS      = "light.fs.glsl";
 
     private static final int    LIGHT_BINDING = 1;
 

@@ -73,8 +73,8 @@ public final class ForwardShading {
     private static final String TEACUP_IMAGE_SPECULAR    = "net/mschorn/sandbox/resources/images/teacup.specular.png";
     private static final String TEACUP_GEOMETRY          = "net/mschorn/sandbox/resources/geometry/teacup.obj";
 
-    private static final String FORWARD_VS               = "forward.vs";
-    private static final String FORWARD_FS               = "forward.fs";
+    private static final String FORWARD_VS               = "forward.vs.glsl";
+    private static final String FORWARD_FS               = "forward.fs.glsl";
 
     private static final int    MVP_BINDING              = 0;
     private static final int    LIGHT_BINDING            = 1;
