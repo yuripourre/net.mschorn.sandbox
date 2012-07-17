@@ -223,12 +223,6 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 								</goals>
 							</execution>
 						</executions>
-						<configuration>
-							<keystore>${jarsigner.keystore}</keystore>
-							<alias>${jarsigner.alias}</alias>
-							<storepass>${jarsigner.storepass}</storepass>
-							<keypass>${jarsigner.keypass}</keypass>
-						</configuration>
 					</plugin>
 
 				</plugins>
