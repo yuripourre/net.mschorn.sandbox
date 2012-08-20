@@ -3,20 +3,20 @@
 <jnlp spec="6.0+" codebase="http://sandbox.mschorn.net/" href="jnlps/forward.jnlp">
 
   <information>
-    <title>[LWJGL] Forward shading sample</title> 
-    <vendor>Michael Schorn</vendor> 
-    <homepage href="http://sandbox.mschorn.net"/> 
-    <description>Forward shading sample.</description> 
+    <title>[LWJGL] Forward shading sample</title>
+    <vendor>Michael Schorn</vendor>
+    <homepage href="http://sandbox.mschorn.net"/>
+    <description>Forward shading sample.</description>
   </information>
-  
+
   <update check="always" policy="always"/>
-  
-  <resources> 
-    <java version="1.7+" href="http://java.sun.com/products/autodl/j2se" initial-heap-size="64m" max-heap-size="128m"/> 
+
+  <resources>
+    <java version="1.7+" href="http://java.sun.com/products/autodl/j2se" initial-heap-size="64m" max-heap-size="128m"/>
     <jar href="jars/sandbox.jar" main="true" download="eager"/>
-    <extension name="lwjgl" href="http://lwjgl.org/webstart/2.8.3/extension.jnlp"/>
-  </resources> 
-  
+    <extension name="lwjgl" href="http://lwjgl.org/webstart/2.8.4/extension.jnlp"/>
+  </resources>
+
   <application-desc main-class="net.mschorn.sandbox.lwjgl.forward.shading.ForwardShading"/>
 
 </jnlp>
