@@ -18,6 +18,6 @@
     <jar href="jars/sandbox.jar" main="true" download="eager"/>
   </resources>
 
-  <application-desc main-class="net.mschorn.sandbox.association.Association"/>
+  <application-desc main-class="net.mschorn.sandbox.jnlp.association.Association"/>
 
 </jnlp>
