@@ -7,7 +7,8 @@
     <vendor>Michael Schorn</vendor>
     <homepage href="http://sandbox.mschorn.net"/>
     <description>JNLP association sample.</description>
-    <icon href="images/favicon.ico"/>
+    <icon kind="default" href="images/favicon.png"/>
+    <icon kind="shortcut" href="images/favicon.png"/>
     <offline-allowed/>
     <association mime-type="application-x/xyz-file" extensions="xyz"/>
   </information>
