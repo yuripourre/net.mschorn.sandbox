@@ -20,18 +20,17 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 	<modelVersion>4.0.0</modelVersion>
 
+	<parent>
+		<groupId>net.mschorn</groupId>
+		<artifactId>net.mschorn</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+
 	<name>net.mschorn.sandbox</name>
 	<url>http://sandbox.mschorn.net/</url>
-	<groupId>net.mschorn</groupId>
 	<artifactId>sandbox</artifactId>
-	<version>0.1-SNAPSHOT</version>
 
 	<description />
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
 
 	<issueManagement>
 		<system>github.com</system>
@@ -39,6 +38,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	</issueManagement>
 
 	<scm>
+		<tag>HEAD</tag>
 		<url>https://github.com/mschorn/net.mschorn.sandbox</url>
 		<connection>scm:git:git://github.com/mschorn/net.mschorn.sandbox.git</connection>
 		<developerConnection>scm:git:git@github.com:mschorn/net.mschorn.sandbox.git</developerConnection>
@@ -58,7 +58,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 			<id>mschorn</id>
 			<name>Michael Schorn</name>
 			<email>me@mschorn.net</email>
-			<url>http://mschorn.net</url>
+			<url>http://mschorn.net/</url>
 		</developer>
 	</developers>
 
@@ -78,63 +78,17 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 			<systemPath>${java.home}/sample/jnlp/servlet/jnlp.jar</systemPath>
 		</dependency>
 
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
 
 		<finalName>net.mschorn.sandbox</finalName>
-
-		<extensions>
-
-			<extension>
-				<groupId>org.apache.maven.scm</groupId>
-				<artifactId>maven-scm-provider-gitexe</artifactId>
-				<version>1.7</version>
-			</extension>
-
-			<extension>
-				<groupId>org.apache.maven.scm</groupId>
-				<artifactId>maven-scm-manager-plexus</artifactId>
-				<version>1.7</version>
-			</extension>
-
-			<extension>
-				<groupId>org.kathrynhuxtable.maven.wagon</groupId>
-				<artifactId>wagon-gitsite</artifactId>
-				<version>0.3.1</version>
-			</extension>
-
-		</extensions>
-
-		<pluginManagement>
-			<plugins>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-clean-plugin</artifactId>
-					<version>2.5</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.5</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-dependency-plugin</artifactId>
-					<version>2.4</version>
-				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-site-plugin</artifactId>
-					<version>3.1</version>
-				</plugin>
-
-			</plugins>
-		</pluginManagement>
 
 		<plugins>
 
@@ -155,21 +109,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
-					<debug>true</debug>
-					<showDeprecation>true</showDeprecation>
-					<showWarnings>true</showWarnings>
-					<optimize>true</optimize>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
 				<configuration>
 					<archive>
 						<manifestEntries>
@@ -181,10 +121,40 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-images</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/site/images/</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/src/test/resources/net/mschorn/sandbox/</directory>
+									<includes>
+										<include>lwjgl/basecode/ITBasecode.png</include>
+										<include>lwjgl/forward/shading/ITForwardShading.png</include>
+										<include>lwjgl/deferred/shading/ITDeferredShading.png</include>
+										<include>lwjgl/deprecated/vbo/ITFFVBO.png</include>
+										<include>lwjgl/deprecated/texture/ITFFTexturedVBO.png</include>
+										<include>lwjgl/conway/ITConway.png</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>copy</id>
+						<id>copy-jar</id>
 						<phase>pre-site</phase>
 						<goals>
 							<goal>copy</goal>
@@ -202,17 +172,35 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 							</artifactItems>
 						</configuration>
 					</execution>
+					<execution>
+						<id>copy-sources-jar</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>${project.groupId}</groupId>
+									<artifactId>${project.artifactId}</artifactId>
+									<version>${project.version}</version>
+									<classifier>sources</classifier>
+									<type>jar</type>
+									<outputDirectory>${project.build.directory}/site/jars</outputDirectory>
+									<destFileName>sandbox-sources.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
+				<artifactId>maven-failsafe-plugin</artifactId>
 				<configuration>
-					<generateProjectInfo>false</generateProjectInfo>
-					<generateReports>false</generateReports>
-					<generateSitemap>false</generateSitemap>
-					<templateFile>${basedir}/src/site/empty.vm</templateFile>
+					<forkMode>once</forkMode>
+					<argLine>-Djava.library.path=${project.basedir}/natives</argLine>
 				</configuration>
 			</plugin>
 
