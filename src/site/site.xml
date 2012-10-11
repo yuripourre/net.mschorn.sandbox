@@ -14,7 +14,7 @@
 		</menu>
 
 		<menu name="Issues">
-			<item name="Issue Tracking" href="https://github.com/mschorn/net.mschorn.sandbox/issues"/>
+			<item name="Issue Tracking" href="https://github.com/mschorn/net.mschorn.sandbox/issues/"/>
 		</menu>
 
 		<menu name="Project Documentation">
