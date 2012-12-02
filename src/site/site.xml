@@ -7,20 +7,20 @@
 	</skin>
 
 	<body>
-	
+
 		<menu name="Projects" inherit="top">
 			<item name="mschorn.net" href="http://mschorn.net/index.html"/>
 			<item name="sandbox.mschorn.net" href="http://sandbox.mschorn.net/index.html"/>
 		</menu>
 
 		<menu name="Issues">
-			<item name="Issue Tracking" href="https://github.com/mschorn/net.mschorn.sandbox/issues/"/>
+			<item name="Tracking" href="https://github.com/mschorn/net.mschorn.sandbox/issues/"/>
 		</menu>
 
 		<menu name="Project Documentation">
 			<item name="Contact" href="http://sandbox.mschorn.net/contact.html"/>
 		</menu>
-		
+
 		<footer>http://flattr.com/thing/932382/sandbox-mschorn-net</footer>
 
 	</body>
