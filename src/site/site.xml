@@ -18,6 +18,7 @@
 		</menu>
 
 		<menu name="Documentation">
+			<item name="Checkstyle" href="http://sandbox.mschorn.net/checkstyle.html"/>
 			<item name="Findbugs" href="http://sandbox.mschorn.net/findbugs.html"/>
 			<item name="Contact" href="http://sandbox.mschorn.net/contact.html"/>
 		</menu>
