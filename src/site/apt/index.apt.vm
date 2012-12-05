@@ -6,7 +6,7 @@ net.mschorn.sandbox
 
 * About
 
-  This page contains a set of sample projects. All these samples are
+  This page contains a set of samples. All these samples are
 
   * only written to visualize ideas as code snippets
 
@@ -74,7 +74,9 @@ Deprecated (using deprecated OpenGL features)
 
 * Legacy
 
-  As control group of the OpenGL specification, the Khronos Group introduces with OpenGL 3.0 a deprecation model in which certain features be marked as deprecated. Today, most of the deprecated features are removed from the OpenGL core profile. There are still available in the OpenGL compatibility profile.
+  As control group of the OpenGL specification, the Khronos Group introduces with OpenGL 3.0 a deprecation model in which certain features be marked as deprecated. Today, most of the deprecated features are removed from the OpenGL core profile. But, there are still available in the OpenGL compatibility profile.
+  
+  All the following samples based heavily on the OpenGL fixed function pipeline. This pipeline is completely marked as deprecated and removed from the OpenGL core profile. So there is a leak of forward compatibility in these samples.
 
 
 ** [LWJGL] Fixed Function VBO (deprecated)
