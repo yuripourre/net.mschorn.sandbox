@@ -63,12 +63,18 @@ public class Texture {
 
     public Texture(final int unit, final int width, final int height, final int type) {
 
+        this(unit, width, height, type, null);
+
+    }
+
+
+    public Texture(final int unit, final int width, final int height, final int type, final ByteBuffer buffer) {
+
         this.unit = unit;
         this.width = width;
         this.height = height;
         this.type = type;
-
-        buffer = null;
+        this.buffer = buffer;
 
     }
 
