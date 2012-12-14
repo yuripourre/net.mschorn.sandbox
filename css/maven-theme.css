@@ -1,141 +1,207 @@
-body {
-  padding: 0px 0px 10px 0px;
-}
-body, td, select, input, li{
-  font-family: Verdana, Helvetica, Arial, sans-serif;
-  font-size: 13px;
-}
-code{
-  font-family: Courier, monospace;
-  font-size: 13px;
-}
-a {
-  text-decoration: none;
-}
-a:link {
-  color:#36a;
-}
-a:visited  {
-  color:#47a;
-}
-a:active, a:hover {
-  color:#69c;
-}
-#legend li.externalLink {
-  background: url(../images/external.png) left top no-repeat;
-  padding-left: 18px;
-}
-a.externalLink, a.externalLink:link, a.externalLink:visited, a.externalLink:active, a.externalLink:hover {
-  background: url(../images/external.png) right center no-repeat;
-  padding-right: 18px;
-}
-#legend li.newWindow {
-  background: url(../images/newwindow.png) left top no-repeat;
-  padding-left: 18px;
-}
-a.newWindow, a.newWindow:link, a.newWindow:visited, a.newWindow:active, a.newWindow:hover {
-  background: url(../images/newwindow.png) right center no-repeat;
-  padding-right: 18px;
-}
-h2 {
-  padding: 4px 4px 4px 6px;
-  border: 1px solid #999;
-  color: #900;
-  background-color: #ddd;
-  font-weight:900;
-  font-size: x-large;
-}
-h3 {
-  padding: 4px 4px 4px 6px;
-  border: 1px solid #aaa;
-  color: #900;
-  background-color: #eee;
-  font-weight: normal;
-  font-size: large;
-}
-h4 {
-  padding: 4px 4px 4px 6px;
-  border: 1px solid #bbb;
-  color: #900;
-  background-color: #fff;
-  font-weight: normal;
-  font-size: large;
-}
-h5 {
-  padding: 4px 4px 4px 6px;
-  color: #900;
-  font-size: normal;
-}
-p {
-  line-height: 1.3em;
-  font-size: small;
-}
-#breadcrumbs {
-  border-top: 1px solid #aaa;
-  border-bottom: 1px solid #aaa;
-  background-color: #ccc;
-}
-#leftColumn {
-  margin: 10px 0 0 5px;
-  border: 1px solid #999;
-  background-color: #eee;
-}
-#navcolumn h5 {
-  font-size: smaller;
-  border-bottom: 1px solid #aaaaaa;
-  padding-top: 2px;
-  color: #000;
+@charset "utf-8";
+
+/*
+ * Copyright 2011 - 2012, Michael Schorn (me@mschorn.net). All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted
+ * provided that the following conditions are met:
+ *
+ *   1. Redistributions of source code must retain the above copyright notice, this list of
+ *      conditions and the following disclaimer.
+ *
+ *   2. Redistributions in binary form must reproduce the above copyright notice, this list of
+ *      conditions and the following disclaimer in the documentation and/or other materials
+ *      provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+ * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+ * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
-table.bodyTable th {
+html,body {
+  background-color: #fdfdfd;
+  font: 12px/1.2 Arial, sans-serif;
+  color: #202020;
+  height: 100%;
+}
+
+a:link {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #AA0000;
+}
+
+a img {
+  border: 0 none;
+}
+
+h2 {
+  width: 640px;
+  font-size: 18px;
+  margin: 0px 0px 15px 0px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #dddbd9;
+}
+
+h3 {
+  width: 640px;
+  font-size: 14px;
+  margin: 0px 0px 15px 0px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #dddbd9;
+}
+
+h4 {
+  width: 640px;
+  font-size: 14px;
+  margin: 0px 0px 15px 0px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #dddbd9;
+}
+
+h5 {
+  margin: 0px 0px 10px 0px;
+  font-size: 12px;
+}
+
+hr {
+  width: 640px;
+  border-style: none;
+  margin-bottom: 25px;
+}
+
+p {
+  margin: 12px 0px 12px 0px;
+}
+
+ol {
+  margin: 5px 5px 15px 15px;
+}
+
+ul {
+  list-style-type: square;
+  margin: 5px 0px 15px 0px;
+}
+
+li {
+  margin: 1px 20px 1px 25px;
+}
+
+li.none {
+  margin: 1px 25px 1px 0px;
+  direction: rtl;
+}
+
+li.collapsed {
+  margin: 1px 25px 1px 0px;
+  direction: rtl;
+}
+
+li.expanded {
+  margin: 1px 25px 1px 0px;
+  direction: rtl;
+}
+
+dd {
+  padding: 0px 0px 0px 25px;
+}
+
+table {
+  border-spacing: 2px;
+  margin-left: -2px;
+  width: 100%;
+}
+
+table th {
   color: white;
   background-color: #bbb;
   text-align: left;
   font-weight: bold;
 }
 
-table.bodyTable th, table.bodyTable td {
-  font-size: 1em;
+table th,table td {
+  padding-left: 5px;
 }
 
-table.bodyTable tr.a {
+table tr.a {
   background-color: #ddd;
 }
 
-table.bodyTable tr.b {
+table tr.b {
   background-color: #eee;
 }
 
 .source {
-  border: 1px solid #999;
-}
-dl {
-  padding: 4px 4px 4px 6px;
-  border: 1px solid #aaa;
-  background-color: #ffc;
-}
-dt {
-  color: #900;
-}
-#organizationLogo img, #projectLogo img, #projectLogo span{
-  margin: 8px;
-}
-#banner {
-  border-bottom: 1px solid #fff;
-}
-.errormark, .warningmark, .donemark, .infomark {
-  background: url(../images/icon_error_sml.gif) no-repeat;
+  margin: 5px 0px 5px 0px;
+  padding: 0px 0px 0px 5px;
+  border-left-width: 2px;
+  border-left-style: solid;
+  border-left-color: #dddbd9;
+  border-left-width: 2px;
 }
 
-.warningmark {
-  background-image: url(../images/icon_warning_sml.gif);
+.section {
+  padding-top: 25px;
+  padding-bottom: 0px;
 }
 
-.donemark {
-  background-image: url(../images/icon_success_sml.gif);
+#main {
+  position: relative;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  width: 1070px;
+  vertical-align: bottom;
+  margin: 0 auto;
 }
 
-.infomark {
-  background-image: url(../images/icon_info_sml.gif);
+#menu {
+  position: absolute;
+  width: 175px;
+  text-align: right;
+  padding-top: 35px;
 }
 
+#flattr {
+  margin: 1px 9px 1px 0px;
+}
+
+#line {
+  position: absolute;
+  left: 200px;
+  min-height: 100%;
+  height: auto;
+  height: 100%;
+  width: 1px;
+  margin: 0 auto;
+  background-color: #dddbd9;
+}
+
+#block {
+  width: 640px;
+  padding-left: 226px;
+  padding-bottom: 25px;
+}
