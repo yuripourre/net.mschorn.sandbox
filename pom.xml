@@ -227,6 +227,26 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/resources/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.12.4</version>
 			</plugin>
@@ -333,8 +353,8 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 									<version>${project.version}</version>
 									<classifier>sources</classifier>
 									<type>jar</type>
-									<outputDirectory>${project.build.directory}/site/jars</outputDirectory>
-									<destFileName>sandbox-sources.jar</destFileName>
+									<outputDirectory>${project.build.directory}/site/zips</outputDirectory>
+									<destFileName>sandbox-sources.zip</destFileName>
 								</artifactItem>
 							</artifactItems>
 						</configuration>
@@ -407,6 +427,9 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-jarsigner-plugin</artifactId>
 						<version>1.2</version>
+						<configuration>
+							<archive>${project.build.directory}/${project.groupId}.${project.artifactId}.jar</archive>
+						</configuration>
 						<executions>
 							<execution>
 								<id>sign</id>
