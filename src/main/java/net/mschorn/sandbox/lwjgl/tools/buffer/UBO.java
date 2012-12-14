@@ -1,16 +1,16 @@
 /*
  * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright notice, this list of
  *      conditions and the following disclaimer.
- * 
+ *
  *   2. Redistributions in binary form must reproduce the above copyright notice, this list of
  *      conditions and the following disclaimer in the documentation and/or other materials
  *      provided with the distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
  * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
@@ -19,7 +19,7 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 
@@ -39,14 +39,14 @@ import java.nio.ByteBuffer;
 
 import org.lwjgl.BufferUtils;
 
+
 public class UBO {
 
-    protected final ByteBuffer buffer;
-    protected boolean          modified;
+    private final ByteBuffer buffer;
+    private final int binding;
 
-    private final int          binding;
-
-    private int                handle = -1;
+    private int handle = -1;
+    private boolean dirty;
 
 
     public UBO(final int binding, final int size) {
@@ -70,12 +70,12 @@ public class UBO {
 
     public final void glBind() {
 
-        if (modified) {
+        if (dirty) {
 
             glBindBuffer(GL_UNIFORM_BUFFER, handle);
             glBufferSubData(GL_UNIFORM_BUFFER, 0, buffer);
 
-            modified = false;
+            dirty = false;
 
         }
 
@@ -89,5 +89,20 @@ public class UBO {
         glDeleteBuffers(handle);
 
     }
+
+
+    protected final void markDirty() {
+
+        dirty = true;
+
+    }
+
+
+    protected final ByteBuffer getByteBuffer() {
+
+        return buffer;
+
+    }
+
 
 }

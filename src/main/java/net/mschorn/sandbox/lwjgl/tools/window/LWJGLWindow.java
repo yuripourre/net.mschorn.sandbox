@@ -41,9 +41,9 @@ import org.lwjgl.opengl.PixelFormat;
 
 public final class LWJGLWindow {
 
-    private static final int    DEFAULT_MILLI_PER_FRAME = 16;
-    private static final int    NANO_PER_MILLI          = 1000000;
-    private static final double NANO_TO_MILLI           = 1.0 / NANO_PER_MILLI;
+    private static final int DEFAULT_MILLI_PER_FRAME = 16;
+    private static final int NANO_PER_MILLI = 1000000;
+    private static final double NANO_TO_MILLI = 1.0 / NANO_PER_MILLI;
 
 
     private LWJGLWindow() {
@@ -58,7 +58,7 @@ public final class LWJGLWindow {
             final int steps) {
 
         displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, null);
-        displayLoop(lifecycle, displayMode, steps);
+        displayLoop(lifecycle, steps);
 
         final Screenshot screenshot = new Screenshot();
         final BufferedImage image = screenshot.take();
@@ -77,7 +77,7 @@ public final class LWJGLWindow {
             final String title) {
 
         displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, title);
-        displayLoop(lifecycle, displayMode);
+        displayLoop(lifecycle);
         displayDestroy(lifecycle);
 
     }
@@ -108,7 +108,7 @@ public final class LWJGLWindow {
     }
 
 
-    private static void displayLoop(final LWJGLLifecycle lifecycle, final DisplayMode displayMode) {
+    private static void displayLoop(final LWJGLLifecycle lifecycle) {
 
         long time = System.nanoTime();
 
@@ -128,7 +128,7 @@ public final class LWJGLWindow {
     }
 
 
-    private static void displayLoop(final LWJGLLifecycle lifecycle, final DisplayMode displayMode, final int steps) {
+    private static void displayLoop(final LWJGLLifecycle lifecycle, final int steps) {
 
         for (int i = 0; i <= steps; i++) {
 

@@ -1,16 +1,16 @@
 /*
  * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright notice, this list of
  *      conditions and the following disclaimer.
- * 
+ *
  *   2. Redistributions in binary form must reproduce the above copyright notice, this list of
  *      conditions and the following disclaimer in the documentation and/or other materials
  *      provided with the distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
  * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
@@ -19,7 +19,7 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 
@@ -33,25 +33,28 @@ import static org.lwjgl.opengl.GL20.glCompileShader;
 import static org.lwjgl.opengl.GL20.glCreateShader;
 import static org.lwjgl.opengl.GL20.glDeleteShader;
 import static org.lwjgl.opengl.GL20.glDetachShader;
-import static org.lwjgl.opengl.GL20.glGetShader;
 import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
+import static org.lwjgl.opengl.GL20.glGetShaderi;
 import static org.lwjgl.opengl.GL20.glShaderSource;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 
 public class Shader {
 
-    private final int    type;
+    private static final Charset CHARSET = Charset.forName("US-ASCII");
+
+    private final int type;
     private final String source;
 
-    private int          handle = -1;
+    private int handle = -1;
 
 
-    public Shader(final int type, final InputStream is) throws IOException {
+    public Shader(final int type, final InputStream is) {
 
         this.type = type;
         this.source = read(is);
@@ -59,16 +62,22 @@ public class Shader {
     }
 
 
-    private final String read(final InputStream is) throws IOException {
+    private String read(final InputStream is) {
 
         String s;
         final StringBuilder sb = new StringBuilder();
-        final BufferedReader rb = new BufferedReader(new InputStreamReader(is));
+        try (final BufferedReader rb = new BufferedReader(new InputStreamReader(is, CHARSET))) {
 
-        while ((s = rb.readLine()) != null)
-            sb.append(s).append('\n');
+            while ((s = rb.readLine()) != null)
+                sb.append(s).append('\n');
 
-        return sb.toString();
+            return sb.toString();
+
+        } catch (final IOException e) {
+
+            throw new RuntimeException(e);
+
+        }
 
     }
 
@@ -80,9 +89,9 @@ public class Shader {
         glShaderSource(handle, source);
         glCompileShader(handle);
 
-        if (GL_FALSE == glGetShader(handle, GL_COMPILE_STATUS)) {
+        if (GL_FALSE == glGetShaderi(handle, GL_COMPILE_STATUS)) {
 
-            final int length = glGetShader(handle, GL_INFO_LOG_LENGTH);
+            final int length = glGetShaderi(handle, GL_INFO_LOG_LENGTH);
             final String log = glGetShaderInfoLog(handle, length);
 
             System.err.println(log);
@@ -116,5 +125,6 @@ public class Shader {
             glDeleteShader(handle);
 
     }
+
 
 }

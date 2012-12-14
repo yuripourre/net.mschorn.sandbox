@@ -282,11 +282,11 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 									<directory>${basedir}/src/test/resources/net/mschorn/sandbox/</directory>
 									<includes>
 										<include>lwjgl/basecode/ITBasecode.png</include>
-										<include>lwjgl/forward/shading/ITForwardShading.png</include>
-										<include>lwjgl/deferred/shading/ITDeferredShading.png</include>
-										<include>lwjgl/deprecated/vbo/ITFFVBO.png</include>
-										<include>lwjgl/deprecated/texture/ITFFTexturedVBO.png</include>
-										<include>lwjgl/conway/ITConway.png</include>
+										<include>lwjgl/forward/samples/shading/ITForwardShading.png</include>
+										<include>lwjgl/deferred/samples/shading/ITDeferredShading.png</include>
+										<include>lwjgl/deprecated/samples/vbo/ITSimpleVBO.png</include>
+										<include>lwjgl/deprecated/samples/texture/ITTexturedVBO.png</include>
+										<include>lwjgl/gpgpu/samples/conway/ITConway.png</include>
 									</includes>
 								</resource>
 							</resources>

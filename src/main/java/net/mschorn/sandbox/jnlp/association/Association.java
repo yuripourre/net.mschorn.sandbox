@@ -29,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 import javax.jnlp.ExtendedService;
 import javax.jnlp.FileContents;
@@ -38,6 +39,19 @@ import javax.swing.JOptionPane;
 
 
 public final class Association {
+
+    private static final Charset CHARSET = Charset.forName("US-ASCII");
+
+
+    public static void main(final String[] args) throws UnavailableServiceException, IOException {
+
+        if (args.length == 2 && "-open".equals(args[0]))
+            showFile(new File(args[1]));
+
+        else
+            JOptionPane.showMessageDialog(null, "Hello, world!");
+
+    }
 
 
     private Association() {
@@ -50,7 +64,7 @@ public final class Association {
         final ExtendedService es = (ExtendedService) ServiceManager.lookup("javax.jnlp.ExtendedService");
         final FileContents fc = es.openFile(file);
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(fc.getInputStream()))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(fc.getInputStream(), CHARSET))) {
 
             final StringBuilder sb = new StringBuilder();
 
@@ -61,17 +75,6 @@ public final class Association {
             JOptionPane.showMessageDialog(null, sb.toString());
 
         }
-
-    }
-
-
-    public static void main(final String[] args) throws UnavailableServiceException, IOException {
-
-        if (args.length == 2 && "-open".equals(args[0]))
-            showFile(new File(args[1]));
-
-        else
-            JOptionPane.showMessageDialog(null, "Hello, world!");
 
     }
 

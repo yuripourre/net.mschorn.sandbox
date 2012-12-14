@@ -20,82 +20,90 @@ net.mschorn.sandbox
   * {{{./jars/sandbox-sources.jar}Sources}}
 
 
+** [JNLP] File association sample
+
+[./images/jnlp/association.png] [JNLP] file association sample
+
+  <<Requirements:>> Java 7
+
+  * {{{./jnlps/jnlp/association.jnlp}Webstart}}
+
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/jnlp/association}Source}}
+
+
 ** [LWJGL] Basecode
 
 [./images/lwjgl/basecode/ITBasecode.png] [LWJGL] Basecode
 
   <<Requirements:>> Java 7, OpenGL 1.2
 
-  * {{{./jnlps/basecode.jnlp}Webstart}}
+  * {{{./jnlps/lwjgl/basecode.jnlp}Webstart}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/basecode}Source}}
 
 
 ** [LWJGL] Forward shading sample
 
-[./images/lwjgl/forward/shading/ITForwardShading.png] [LWJGL] Forward shading sample
+[./images/lwjgl/forward/samples/shading/ITForwardShading.png] [LWJGL] Forward shading sample
 
   <<Requirements:>> Java 7, OpenGL 4.2
 
-  * {{{./jnlps/forward.jnlp}Webstart}}
+  * {{{./jnlps/lwjgl/forward/forward.jnlp}Webstart}}
 
-  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/shading}Source}}
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/samples/shading}Source}}
 
 
 ** [LWJGL] Deferred shading sample
 
-[./images/lwjgl/deferred/shading/ITDeferredShading.png] [LWJGL] Deferred shading sample
+[./images/lwjgl/deferred/samples/shading/ITDeferredShading.png] [LWJGL] Deferred shading sample
 
   <<Requirements:>> Java 7, OpenGL 4.2
 
-  * {{{./jnlps/deferred.jnlp}Webstart}}
+  * {{{./jnlps/lwjgl/deferred/deferred.jnlp}Webstart}}
 
-  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deferred/shading}Source}}
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deferred/samples/shading}Source}}
 
 
 ** [LWJGL] Conway's Game of Life
 
-[./images/lwjgl/conway/ITConway.png] [LWJGL] Conway's Game of Life
+[./images/lwjgl/gpgpu/samples/conway/ITConway.png] [LWJGL] Conway's Game of Life
 
   <<Requirements:>> Java 7, OpenGL 4.2
 
-  * {{{./jnlps/conway.jnlp}Webstart}}
+  * {{{./jnlps/lwjgl/gpgpu/conway.jnlp}Webstart}}
 
-  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/conway}Source}}
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/gpgpu/samples/conway}Source}}
 
 
 ===
 
 ===
-
-
-Deprecated (using deprecated OpenGL features)
 
 
 * Legacy
 
-  As control group of the OpenGL specification, the Khronos Group introduces with OpenGL 3.0 a deprecation model in which certain features be marked as deprecated. Today, most of the deprecated features are removed from the OpenGL core profile. But, there are still available in the OpenGL compatibility profile.
+  As control group of the OpenGL specification, the Khronos Group introduces with OpenGL 3.0 a deprecation model in which certain features be marked as deprecated. Today, most of the deprecated features are removed from the OpenGL core profile. But there are still available in the OpenGL compatibility profile.
   
-  All the following samples based heavily on the OpenGL fixed function pipeline. This pipeline is completely marked as deprecated and removed from the OpenGL core profile. So there is a leak of forward compatibility in these samples.
+  All the following samples based on the OpenGL fixed function pipeline. This pipeline is completely marked as deprecated and removed from the OpenGL core profile. So there is a leak of forward compatibility in these samples.
 
 
 ** [LWJGL] Fixed Function VBO (deprecated)
 
-[./images/lwjgl/deprecated/vbo/ITFFVBO.png] [LWJGL] Fixed Function VBO
+[./images/lwjgl/deprecated/samples/vbo/ITSimpleVBO.png] [LWJGL] Fixed Function VBO
 
   <<Requirements:>> Java 7, OpenGL 1.5
 
-  * {{{./jnlps/ffvbo.jnlp}Webstart}}
+  * {{{./jnlps/lwjgl/deprecated/simplevbo.jnlp}Webstart}}
 
-  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deprecated/vbo}Source}}
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deprecated/samples/vbo}Source}}
 
 
 ** [LWJGL] Textured Fixed Function VBO (deprecated)
 
-[./images/lwjgl/deprecated/texture/ITFFTexturedVBO.png] [LWJGL] Textured Fixed Function VBO
+[./images/lwjgl/deprecated/samples/texture/ITTexturedVBO.png] [LWJGL] Textured Fixed Function VBO
 
   <<Requirements:>> Java 7, OpenGL 1.5
 
-  * {{{./jnlps/fftexturedvbo.jnlp}Webstart}}
+  * {{{./jnlps/lwjgl/deprecated/texturedvbo.jnlp}Webstart}}
 
-  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deprecated/texture}Source}}  
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deprecated/samples/texture}Source}}  

@@ -1,16 +1,16 @@
 /*
  * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright notice, this list of
  *      conditions and the following disclaimer.
- * 
+ *
  *   2. Redistributions in binary form must reproduce the above copyright notice, this list of
  *      conditions and the following disclaimer in the documentation and/or other materials
  *      provided with the distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
  * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
@@ -19,46 +19,65 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 
 package net.mschorn.sandbox.lwjgl.tools.mvp;
+
+import java.nio.ByteBuffer;
 
 import net.mschorn.sandbox.lwjgl.tools.buffer.UBO;
 
 
 public class MVP extends UBO {
 
-    private static final int    P_OFFSET   = 0;
-    private static final int    MV_OFFSET  = 16;
-    private static final int    MVP_OFFSET = 32;
-    private static final int    NM_OFFSET  = 48;
+    private static final double FOVY = 45.0f;
+    private static final double NEAR = 0.1;
+    private static final double FAR = 100.0;
 
-    private static final double FOVY       = 45.0f;
-    private static final double NEAR       = 0.1;
-    private static final double FAR        = 100.0;
+    private static final int P_OFFSET = 0;
+    private static final int MV_OFFSET = 16;
+    private static final int MVP_OFFSET = 32;
+    private static final int NM_OFFSET = 48;
 
-    private final float[]       p          = new float[16];
-    private final float[]       mv         = new float[16];
-    private final float[]       mvp        = new float[16];
-    private final float[]       nm         = new float[16];
+    private final float[] p = new float[16];
+    private final float[] mv = new float[16];
+    private final float[] mvp = new float[16];
+    private final float[] nm = new float[16];
 
-    private double              rotX, rotY, rotZ;
-    private double              posX, posY, posZ;
+    private final ByteBuffer buffer;
 
-    private double              angle;
+    private double rotX, rotY, rotZ;
+    private double posX, posY, posZ;
+
+    private double angle;
 
 
-    public MVP(final int binding) {
+    public MVP(final int binding, final int width, final int height) {
 
         super(binding, 64 * Float.SIZE / Byte.SIZE);
+
+        buffer = getByteBuffer();
 
         for (int i = 0; i < 4; i++)
             mv[i * 5] = 1.0f;
 
         for (int i = 0; i < 3; i++)
             nm[i * 5] = 1.0f;
+
+        final double f = (1.0 / Math.tan(Math.toRadians(FOVY / 2.0)));
+
+        p[0] = (float) (f / ((double) width / (double) height));
+        p[5] = (float) (f);
+        p[10] = (float) ((FAR + NEAR) / (NEAR - FAR));
+        p[14] = (float) ((2 * FAR * NEAR) / (NEAR - FAR));
+        p[11] = (-1);
+
+        for (int i = 0; i < p.length; i++)
+            buffer.putFloat((P_OFFSET + i) * 4, p[i]);
+
+        markDirty();
 
     }
 
@@ -120,26 +139,9 @@ public class MVP extends UBO {
         for (int i = 0; i < nm.length; i++)
             buffer.putFloat((NM_OFFSET + i) * 4, nm[i]);
 
-        modified = true;
+        markDirty();
 
     }
 
-
-    public final void update(final int x, final int y, final int width, final int height) {
-
-        final double f = (1.0 / Math.tan(Math.toRadians(FOVY / 2.0)));
-
-        p[0] = (float) (f / ((double) width / (double) height));
-        p[5] = (float) (f);
-        p[10] = (float) ((FAR + NEAR) / (NEAR - FAR));
-        p[14] = (float) ((2 * FAR * NEAR) / (NEAR - FAR));
-        p[11] = (-1);
-
-        for (int i = 0; i < p.length; i++)
-            buffer.putFloat((P_OFFSET + i) * 4, p[i]);
-
-        modified = true;
-
-    }
 
 }

@@ -1,16 +1,16 @@
 /*
  * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
- * 
+ *
  *   1. Redistributions of source code must retain the above copyright notice, this list of
  *      conditions and the following disclaimer.
- * 
+ *
  *   2. Redistributions in binary form must reproduce the above copyright notice, this list of
  *      conditions and the following disclaimer in the documentation and/or other materials
  *      provided with the distribution.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
  * AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
@@ -19,7 +19,7 @@
  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 
@@ -29,6 +29,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -38,13 +39,15 @@ import java.util.Map;
 
 public class OBJReader {
 
-    private final List<Integer> indices    = new ArrayList<Integer>();
-    private final List<Float>   attributes = new ArrayList<Float>();
+    private static final Charset CHARSET = Charset.forName("US-ASCII");
 
-    private int                 index      = 0;
+    private final List<Integer> indices = new ArrayList<Integer>();
+    private final List<Float> attributes = new ArrayList<Float>();
+
+    private int index = 0;
 
 
-    public OBJReader(final InputStream is) throws IOException {
+    public OBJReader(final InputStream is) {
 
         parse(is);
 
@@ -65,58 +68,64 @@ public class OBJReader {
     }
 
 
-    private final void parse(final InputStream is) throws IOException {
+    private void parse(final InputStream is) {
 
         final List<Float> v = new ArrayList<Float>();
         final List<Float> vt = new ArrayList<Float>();
         final List<Float> vn = new ArrayList<Float>();
         final Map<String, Integer> f = new HashMap<String, Integer>();
 
-        final BufferedReader br = new BufferedReader(new InputStreamReader(is));
+        try (final BufferedReader br = new BufferedReader(new InputStreamReader(is, CHARSET))) {
 
-        String line;
-        while ((line = br.readLine()) != null) {
+            String line;
+            while ((line = br.readLine()) != null) {
 
-            if (line.contains("#"))
-                line = line.substring(0, line.indexOf("#"));
+                if (line.contains("#"))
+                    line = line.substring(0, line.indexOf("#"));
 
-            line = line.trim();
+                line = line.trim();
 
-            if (line.length() > 0) {
+                if (line.length() > 0) {
 
-                final String[] values = line.split(" ");
+                    final String[] values = line.split(" ");
 
-                switch (values[0]) {
+                    switch (values[0]) {
 
-                case "v":
-                    parseV(v, values);
-                    break;
+                    case "v":
+                        parseV(v, values);
+                        break;
 
-                case "vt":
-                    parseVT(vt, values);
-                    break;
+                    case "vt":
+                        parseVT(vt, values);
+                        break;
 
-                case "vn":
-                    parseVN(vn, values);
-                    break;
+                    case "vn":
+                        parseVN(vn, values);
+                        break;
 
-                case "f":
-                    parseF(v, vt, vn, f, values);
-                    break;
+                    case "f":
+                        parseF(v, vt, vn, f, values);
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+
+                    }
 
                 }
 
             }
+
+        } catch (final IOException e) {
+
+            throw new RuntimeException(e);
 
         }
 
     }
 
 
-    private final void parseV(final List<Float> v, final String[] values) throws IOException {
+    private void parseV(final List<Float> v, final String[] values) throws IOException {
 
         if (3 != values.length - 1)
             throw new IOException("unsupported file format (v dimension)");
@@ -127,7 +136,7 @@ public class OBJReader {
     }
 
 
-    private final void parseVT(final List<Float> vt, final String[] values) throws IOException {
+    private void parseVT(final List<Float> vt, final String[] values) throws IOException {
 
         if (2 != values.length - 1)
             throw new IOException("unsupported file format (vt dimension)");
@@ -138,7 +147,7 @@ public class OBJReader {
     }
 
 
-    private final void parseVN(final List<Float> vn, final String[] values) throws IOException {
+    private void parseVN(final List<Float> vn, final String[] values) throws IOException {
 
         if (3 != values.length - 1)
             throw new IOException("unsupported file format (vn dimension)");
@@ -149,7 +158,7 @@ public class OBJReader {
     }
 
 
-    private final void parseF(final List<Float> v, final List<Float> vt, final List<Float> vn, final Map<String, Integer> f, final String[] values) throws IOException {
+    private void parseF(final List<Float> v, final List<Float> vt, final List<Float> vn, final Map<String, Integer> f, final String[] values) throws IOException {
 
         if (3 != values.length - 1)
             throw new IOException("unsupported file format (only triangle faces supported)");
@@ -166,7 +175,7 @@ public class OBJReader {
     }
 
 
-    private final void parseF(final List<Float> v, final List<Float> vt, final List<Float> vn, final Map<String, Integer> f, final String value) throws IOException {
+    private void parseF(final List<Float> v, final List<Float> vt, final List<Float> vn, final Map<String, Integer> f, final String value) throws IOException {
 
         final String[] values = value.split("/");
 
@@ -190,5 +199,6 @@ public class OBJReader {
         f.put(value, index++);
 
     }
+
 
 }

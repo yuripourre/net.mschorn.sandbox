@@ -44,11 +44,25 @@ import org.lwjgl.opengl.PixelFormat;
 
 public final class Basecode implements LWJGLLifecycle {
 
-    private static final int GL_VERSION_MAJOR = 1;
-    private static final int GL_VERSION_MINOR = 2;
+    public static final String TITLE = "Basecode";
 
-    private static final int WIDTH            = 800;
-    private static final int HEIGHT           = 475;
+    public static final int GL_MAJOR_VERSION = 1;
+    public static final int GL_MINOR_VERSION = 2;
+
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 475;
+
+
+    public static void main(final String[] args) {
+
+        final Basecode lifecycle = new Basecode();
+        final DisplayMode displayMode = new DisplayMode(WIDTH, HEIGHT);
+        final PixelFormat pixelFormat = new PixelFormat();
+        final ContextAttribs contextAttribs = new ContextAttribs(GL_MAJOR_VERSION, GL_MINOR_VERSION);
+
+        LWJGLWindow.display(lifecycle, displayMode, pixelFormat, contextAttribs, TITLE);
+
+    }
 
 
     @Override
@@ -76,19 +90,6 @@ public final class Basecode implements LWJGLLifecycle {
 
     @Override
     public void glDispose() {
-
-    }
-
-
-    public static void main(final String[] args) {
-
-        final Basecode lifecycle = new Basecode();
-        final DisplayMode displayMode = new DisplayMode(WIDTH, HEIGHT);
-        final PixelFormat pixelFormat = new PixelFormat();
-        final ContextAttribs contextAttribs = new ContextAttribs(GL_VERSION_MAJOR, GL_VERSION_MINOR);
-        final String title = "Basecode";
-
-        LWJGLWindow.display(lifecycle, displayMode, pixelFormat, contextAttribs, title);
 
     }
 
