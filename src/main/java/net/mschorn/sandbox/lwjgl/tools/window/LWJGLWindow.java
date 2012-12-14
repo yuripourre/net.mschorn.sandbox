@@ -83,6 +83,13 @@ public final class LWJGLWindow {
     }
 
 
+    public static void setTitle(final String title) {
+
+        Display.setTitle(title);
+
+    }
+
+
     private static void displayInit(final LWJGLLifecycle lifecycle,
             final DisplayMode displayMode,
             final PixelFormat pixelFormat,
