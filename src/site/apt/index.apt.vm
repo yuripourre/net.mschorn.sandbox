@@ -49,6 +49,8 @@ net.mschorn.sandbox
   <<Requirements:>> Java 7, OpenGL 4.2
 
   * {{{./jnlps/lwjgl/forward/forward.jnlp}Webstart}}
+  
+  * {{{https://www.youtube.com/watch?v=pTU6_xQVCeY}YouTube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/samples/shading}Source}}
 
@@ -60,6 +62,8 @@ net.mschorn.sandbox
   <<Requirements:>> Java 7, OpenGL 4.2
 
   * {{{./jnlps/lwjgl/deferred/deferred.jnlp}Webstart}}
+  
+  * {{{https://www.youtube.com/watch?v=SZigctCVqBs}YouTube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deferred/samples/shading}Source}}
 
@@ -71,6 +75,8 @@ net.mschorn.sandbox
   <<Requirements:>> Java 7, OpenGL 4.2
 
   * {{{./jnlps/lwjgl/gpgpu/conway.jnlp}Webstart}}
+  
+  * {{{https://www.youtube.com/watch?v=pkvoQ9Nxpg4}YouTube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/gpgpu/samples/conway}Source}}
 
