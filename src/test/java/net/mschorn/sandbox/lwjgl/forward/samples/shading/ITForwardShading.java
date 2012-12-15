@@ -41,7 +41,7 @@ public final class ITForwardShading extends GLUnit {
 
     private static final int WIDTH = 640;
     private static final int HEIGHT = 360;
-    private static final int STEPS = 270;
+    private static final int STEPS = 120;
 
 
     @Test
