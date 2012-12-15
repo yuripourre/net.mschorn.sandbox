@@ -102,7 +102,7 @@ public final class ForwardShading implements LWJGLLifecycle {
 
         final ForwardShading lifecycle = new ForwardShading();
         final DisplayMode displayMode = new DisplayMode(WIDTH, HEIGHT);
-        final PixelFormat pixelFormat = new PixelFormat();
+        final PixelFormat pixelFormat = new PixelFormat().withSamples(4);
         final ContextAttribs contextAttribs = new ContextAttribs(GL_MAJOR_VERSION, GL_MINOR_VERSION).withProfileCore(true).withForwardCompatible(true);
 
         LWJGLWindow.display(lifecycle, displayMode, pixelFormat, contextAttribs, TITLE);

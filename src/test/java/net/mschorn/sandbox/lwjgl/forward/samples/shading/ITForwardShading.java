@@ -49,7 +49,7 @@ public final class ITForwardShading extends GLUnit {
 
         final ForwardShading lifecycle = new ForwardShading();
         final DisplayMode displayMode = new DisplayMode(WIDTH, HEIGHT);
-        final PixelFormat pixelFormat = new PixelFormat();
+        final PixelFormat pixelFormat = new PixelFormat().withSamples(4);
         final ContextAttribs contextAttribs = new ContextAttribs(ForwardShading.GL_MAJOR_VERSION, ForwardShading.GL_MINOR_VERSION)
         .withProfileCore(true)
         .withForwardCompatible(true);
