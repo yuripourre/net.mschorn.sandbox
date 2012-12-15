@@ -26,7 +26,10 @@
 package net.mschorn.sandbox.lwjgl.tools.window;
 
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
 import net.mschorn.sandbox.lwjgl.tools.lifecycle.LWJGLLifecycle;
@@ -51,6 +54,19 @@ public final class LWJGLWindow {
     }
 
 
+    public static void display(final LWJGLLifecycle lifecycle,
+            final DisplayMode displayMode,
+            final PixelFormat pixelFormat,
+            final ContextAttribs contextAttribs,
+            final String title) {
+
+        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, title);
+        displayLoop(lifecycle);
+        displayDestroy(lifecycle);
+
+    }
+
+
     public static BufferedImage getImage(final LWJGLLifecycle lifecycle,
             final DisplayMode displayMode,
             final PixelFormat pixelFormat,
@@ -70,14 +86,16 @@ public final class LWJGLWindow {
     }
 
 
-    public static void display(final LWJGLLifecycle lifecycle,
+    public static void takeImageSequence(final LWJGLLifecycle lifecycle,
             final DisplayMode displayMode,
             final PixelFormat pixelFormat,
             final ContextAttribs contextAttribs,
-            final String title) {
+            final String filePrefix,
+            final double timedelta,
+            final int steps) {
 
-        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, title);
-        displayLoop(lifecycle);
+        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, null);
+        displayLoop(lifecycle, filePrefix, timedelta, steps);
         displayDestroy(lifecycle);
 
     }
@@ -142,6 +160,33 @@ public final class LWJGLWindow {
             lifecycle.glDisplay(DEFAULT_MILLI_PER_FRAME);
 
             Display.update();
+
+        }
+
+    }
+
+
+    private static void displayLoop(final LWJGLLifecycle lifecycle, final String filePrefix, final double timedelta, final int steps) {
+
+        final Screenshot screenshot = new Screenshot();
+
+        for (int i = 0; i < steps; i++) {
+
+            lifecycle.glDisplay(timedelta);
+
+            Display.update();
+
+            final BufferedImage image = screenshot.take();
+
+            try {
+
+                ImageIO.write(image, "PNG", new File(filePrefix + i + ".png"));
+
+            } catch (final IOException e) {
+
+                e.printStackTrace();
+
+            }
 
         }
 
