@@ -50,7 +50,7 @@ net.mschorn.sandbox
 
   * {{{./jnlps/lwjgl/forward/forward.jnlp}Webstart}}
   
-  * {{{https://www.youtube.com/watch?v=pTU6_xQVCeY}YouTube}}
+  * {{{https://www.youtube.com/watch?v=pTU6_xQVCeY}Youtube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/samples/shading}Source}}
 
@@ -63,7 +63,7 @@ net.mschorn.sandbox
 
   * {{{./jnlps/lwjgl/deferred/deferred.jnlp}Webstart}}
   
-  * {{{https://www.youtube.com/watch?v=SZigctCVqBs}YouTube}}
+  * {{{https://www.youtube.com/watch?v=SZigctCVqBs}Youtube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deferred/samples/shading}Source}}
 
@@ -76,7 +76,7 @@ net.mschorn.sandbox
 
   * {{{./jnlps/lwjgl/gpgpu/conway.jnlp}Webstart}}
   
-  * {{{https://www.youtube.com/watch?v=pkvoQ9Nxpg4}YouTube}}
+  * {{{https://www.youtube.com/watch?v=pkvoQ9Nxpg4}Youtube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/gpgpu/samples/conway}Source}}
 
