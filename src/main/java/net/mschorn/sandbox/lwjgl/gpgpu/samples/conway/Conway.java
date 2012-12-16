@@ -96,9 +96,6 @@ public final class Conway implements LWJGLLifecycle {
 
     private final FBO fbo;
 
-    private double time = 0;
-    private int frame = 0;
-
     private boolean toggle;
 
 
@@ -210,18 +207,6 @@ public final class Conway implements LWJGLLifecycle {
 
 
     private void step(final Texture front, final Texture back, final double timedelta) {
-
-        time += timedelta;
-        frame += 1;
-
-        if (time > 1000) {
-
-            LWJGLWindow.setTitle(TITLE + ": " + Math.round(frame / time * 1000) + "fps");
-
-            time = 0;
-            frame = 0;
-
-        }
 
         sampler.glBind();
 

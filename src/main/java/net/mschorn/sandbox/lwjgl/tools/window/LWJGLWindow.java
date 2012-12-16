@@ -48,6 +48,8 @@ public final class LWJGLWindow {
     private static final int NANO_PER_MILLI = 1000000;
     private static final double NANO_TO_MILLI = 1.0 / NANO_PER_MILLI;
 
+    private static String title;
+
 
     private LWJGLWindow() {
 
@@ -60,7 +62,9 @@ public final class LWJGLWindow {
             final ContextAttribs contextAttribs,
             final String title) {
 
-        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, title);
+        LWJGLWindow.title = title;
+
+        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs);
         displayLoop(lifecycle);
         displayDestroy(lifecycle);
 
@@ -73,7 +77,7 @@ public final class LWJGLWindow {
             final ContextAttribs contextAttribs,
             final int steps) {
 
-        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, null);
+        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs);
         displayLoop(lifecycle, steps);
 
         final Screenshot screenshot = new Screenshot();
@@ -94,7 +98,7 @@ public final class LWJGLWindow {
             final double timedelta,
             final int steps) {
 
-        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs, null);
+        displayInit(lifecycle, displayMode, pixelFormat, contextAttribs);
         displayLoop(lifecycle, filePrefix, timedelta, steps);
         displayDestroy(lifecycle);
 
@@ -103,7 +107,7 @@ public final class LWJGLWindow {
 
     public static void setTitle(final String title) {
 
-        Display.setTitle(title);
+        LWJGLWindow.title = title;
 
     }
 
@@ -111,8 +115,7 @@ public final class LWJGLWindow {
     private static void displayInit(final LWJGLLifecycle lifecycle,
             final DisplayMode displayMode,
             final PixelFormat pixelFormat,
-            final ContextAttribs contextAttribs,
-            final String title) {
+            final ContextAttribs contextAttribs) {
 
         try {
 
@@ -137,15 +140,32 @@ public final class LWJGLWindow {
 
         long time = System.nanoTime();
 
+        long fpsFrames = 0;
+        double fpsTime = 0;
+
         while (!Display.isCloseRequested()) {
 
             final long current = System.nanoTime();
-            final long timedelta = current - time;
+            final double timedelta = (current - time) * NANO_TO_MILLI;
             time = current;
 
-            lifecycle.glDisplay(timedelta * NANO_TO_MILLI);
+            lifecycle.glDisplay(timedelta);
 
             Display.update();
+
+            fpsFrames += 1;
+            fpsTime += timedelta;
+
+            if (fpsTime > 1000) {
+
+                final long fps = Math.round(fpsFrames / fpsTime * 1000);
+
+                Display.setTitle(title + ": " + fps + "fps");
+
+                fpsFrames = 0;
+                fpsTime = 0;
+
+            }
 
         }
 
