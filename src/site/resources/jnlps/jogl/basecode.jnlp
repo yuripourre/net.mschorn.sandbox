@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE jnlp PUBLIC "-//Sun Microsystems, Inc//DTD JNLP Descriptor 6.0//EN" "http://java.sun.com/dtd/JNLP-6.0.dtd">
+<jnlp spec="6.0+" codebase="http://sandbox.mschorn.net/" href="jnlps/jogl/basecode.jnlp">
+
+  <information>
+    <title>[JOGL] Basecode</title>
+    <vendor>Michael Schorn</vendor>
+    <homepage href="http://sandbox.mschorn.net"/>
+    <description>JOGL basecode implementation.</description>
+  </information>
+
+  <update check="always" policy="always"/>
+
+  <resources>
+    <java version="1.7+" href="http://java.sun.com/products/autodl/j2se" initial-heap-size="64m" max-heap-size="128m"/>
+    <jar href="jars/sandbox.jar" main="true" download="eager"/>
+    <extension name="jogl-all-awt" href="http://jogamp.org/deployment/jogamp-current/jogl-all-awt.jnlp" />
+  </resources>
+
+  <application-desc main-class="net.mschorn.sandbox.jogl.basecode.Basecode"/>
+
+</jnlp>

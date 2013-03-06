@@ -31,6 +31,17 @@ net.mschorn.sandbox
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/jnlp/association}Source}}
 
 
+** [JOGL] Basecode
+
+[./images/jogl/basecode/ITBasecode.png] [JOGL] Basecode
+
+  <<Requirements:>> Java 7, OpenGL 2.0
+
+  * {{{./jnlps/jogl/basecode.jnlp}Webstart}}
+
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/jogl/basecode}Source}}
+
+
 ** [LWJGL] Basecode
 
 [./images/lwjgl/basecode/ITBasecode.png] [LWJGL] Basecode
