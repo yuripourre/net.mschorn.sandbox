@@ -24,17 +24,12 @@
 
 package net.mschorn.sandbox.jogl.basecode;
 
-import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_DEPTH_TEST;
-import static org.lwjgl.opengl.GL11.GL_MODELVIEW;
-import static org.lwjgl.opengl.GL11.GL_PROJECTION;
-
 import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 
+import javax.media.opengl.GL;
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
@@ -58,7 +53,7 @@ public final class Basecode implements GLEventListener {
 
         gl = drawable.getGL().getGL2();
 
-        gl.glEnable(GL_DEPTH_TEST);
+        gl.glEnable(GL.GL_DEPTH_TEST);
 
     }
 
@@ -66,7 +61,7 @@ public final class Basecode implements GLEventListener {
     @Override
     public void display(final GLAutoDrawable drawable) {
 
-        gl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        gl.glClear(GL.GL_COLOR_BUFFER_BIT | GL.GL_DEPTH_BUFFER_BIT);
         gl.glLoadIdentity();
 
     }
@@ -75,10 +70,10 @@ public final class Basecode implements GLEventListener {
     @Override
     public void reshape(final GLAutoDrawable drawable, final int x, final int y, final int width, final int height) {
 
-        gl.glMatrixMode(GL_PROJECTION);
+        gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
 
-        gl.glMatrixMode(GL_MODELVIEW);
+        gl.glMatrixMode(GL2.GL_MODELVIEW);
         gl.glLoadIdentity();
 
     }
