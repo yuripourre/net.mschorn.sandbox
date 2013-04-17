@@ -24,7 +24,8 @@ net.mschorn.sandbox
 
 [./images/jnlp/association.png] [JNLP] file association sample
 
-  <<Requirements:>> Java 7
+  <<Requirements:>> Java 7\
+  <<Keyword-Bingo:>> JNLP API, file association
 
   * {{{./jnlps/jnlp/association.jnlp}Webstart}}
 
@@ -35,7 +36,8 @@ net.mschorn.sandbox
 
 [./images/jogl/basecode/ITBasecode.png] [JOGL] Basecode
 
-  <<Requirements:>> Java 7, OpenGL 2.0
+  <<Requirements:>> Java 7, OpenGL 2.0\
+  <<Keyword-Bingo:>> JOGL, basecode
 
   * {{{./jnlps/jogl/basecode.jnlp}Webstart}}
 
@@ -46,7 +48,8 @@ net.mschorn.sandbox
 
 [./images/lwjgl/basecode/ITBasecode.png] [LWJGL] Basecode
 
-  <<Requirements:>> Java 7, OpenGL 1.2
+  <<Requirements:>> Java 7, OpenGL 1.2\
+  <<Keyword-Bingo:>> LWJGL, basecode
 
   * {{{./jnlps/lwjgl/basecode.jnlp}Webstart}}
 
@@ -57,7 +60,8 @@ net.mschorn.sandbox
 
 [./images/lwjgl/forward/samples/shading/ITForwardShading.png] [LWJGL] Forward shading sample
 
-  <<Requirements:>> Java 7, OpenGL 4.2
+  <<Requirements:>> Java 7, OpenGL 4.2\
+  <<Keyword-Bingo:>> VS, FS, VAO, IBO, VBO, UBO, sampler, texturing, per pixel lighting
 
   * {{{./jnlps/lwjgl/forward/forward.jnlp}Webstart}}
   
@@ -70,7 +74,8 @@ net.mschorn.sandbox
 
 [./images/lwjgl/deferred/samples/shading/ITDeferredShading.png] [LWJGL] Deferred shading sample
 
-  <<Requirements:>> Java 7, OpenGL 4.2
+  <<Requirements:>> Java 7, OpenGL 4.2\
+  <<Keyword-Bingo:>> VS, FS, VAO, IBO, VBO, UBO, sampler, texturing, per pixel lighting, geometry pass, light pass 
 
   * {{{./jnlps/lwjgl/deferred/deferred.jnlp}Webstart}}
   
@@ -83,7 +88,8 @@ net.mschorn.sandbox
 
 [./images/lwjgl/gpgpu/samples/conway/ITConway.png] [LWJGL] Conway's Game of Life
 
-  <<Requirements:>> Java 7, OpenGL 4.2
+  <<Requirements:>> Java 7, OpenGL 4.2\
+  <<Keyword-Bingo:>> VS, FS, VAO, IBO, VBO, FBO, sampler, gpgpu
 
   * {{{./jnlps/lwjgl/gpgpu/conway.jnlp}Webstart}}
   
@@ -108,7 +114,8 @@ net.mschorn.sandbox
 
 [./images/lwjgl/deprecated/samples/vbo/ITSimpleVBO.png] [LWJGL] Fixed Function VBO
 
-  <<Requirements:>> Java 7, OpenGL 1.5
+  <<Requirements:>> Java 7, OpenGL 1.5\
+  <<Keyword-Bingo:>> IBO, interleaved VBO, triangle, coloring
 
   * {{{./jnlps/lwjgl/deprecated/simplevbo.jnlp}Webstart}}
 
@@ -119,7 +126,8 @@ net.mschorn.sandbox
 
 [./images/lwjgl/deprecated/samples/texture/ITTexturedVBO.png] [LWJGL] Textured Fixed Function VBO
 
-  <<Requirements:>> Java 7, OpenGL 1.5
+  <<Requirements:>> Java 7, OpenGL 1.5\
+  <<Keyword-Bingo:>> IBO, interleaved VBO, quad, texturing
 
   * {{{./jnlps/lwjgl/deprecated/texturedvbo.jnlp}Webstart}}
 
@@ -130,7 +138,8 @@ net.mschorn.sandbox
 
 [./images/lwjgl/deprecated/samples/cube/ITCubeVBO.png] [LWJGL] Fixed Function Cube VBO
 
-  <<Requirements:>> Java 7, OpenGL 3.2
+  <<Requirements:>> Java 7, OpenGL 3.2\
+  <<Keyword-Bingo:>> IBO, interleaved VBO, triangle strip, primitive restart, texturing, fixed function lighting
 
   * {{{./jnlps/lwjgl/deprecated/cubevbo.jnlp}Webstart}}
 
