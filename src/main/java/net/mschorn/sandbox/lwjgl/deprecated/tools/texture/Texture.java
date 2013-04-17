@@ -1,5 +1,5 @@
 /*
- * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
+ * Copyright 2012 - 2013, Michael Schorn (me@mschorn.net). All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
@@ -59,8 +59,11 @@ import org.lwjgl.BufferUtils;
 
 public class Texture {
 
+    private final int type;
     private final int width;
     private final int height;
+    private final int min;
+    private final int mag;
     private final ByteBuffer buffer;
 
     private int handle = -1;
@@ -70,8 +73,11 @@ public class Texture {
 
         BufferedImage image = loadImage(is);
 
+        type = GL_BGRA;
         width = image.getWidth();
         height = image.getHeight();
+        min = GL_LINEAR_MIPMAP_LINEAR;
+        mag = GL_LINEAR;
 
         image = flipImage(image);
 
@@ -79,6 +85,21 @@ public class Texture {
 
         buffer = BufferUtils.createByteBuffer(pixels.length * Integer.SIZE / Byte.SIZE);
         buffer.asIntBuffer().put(pixels);
+        buffer.rewind();
+
+    }
+
+
+    public Texture(final int type, final int width, final int height, final byte[] pixels, final int min, final int mag) {
+
+        this.type = type;
+        this.width = width;
+        this.height = height;
+        this.min = min;
+        this.mag = mag;
+
+        buffer = BufferUtils.createByteBuffer(pixels.length);
+        buffer.put(pixels);
         buffer.rewind();
 
     }
@@ -125,12 +146,12 @@ public class Texture {
         glEnable(GL_TEXTURE_2D);
 
         glBindTexture(GL_TEXTURE_2D, handle);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, min);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, mag);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_BGRA, GL_UNSIGNED_BYTE, buffer);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, type, GL_UNSIGNED_BYTE, buffer);
         glBindTexture(GL_TEXTURE_2D, 0);
 
     }

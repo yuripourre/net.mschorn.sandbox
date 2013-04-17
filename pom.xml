@@ -325,6 +325,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 										<include>lwjgl/deferred/samples/shading/ITDeferredShading.png</include>
 										<include>lwjgl/deprecated/samples/vbo/ITSimpleVBO.png</include>
 										<include>lwjgl/deprecated/samples/texture/ITTexturedVBO.png</include>
+										<include>lwjgl/deprecated/samples/cube/ITCubeVBO.png</include>
 										<include>lwjgl/gpgpu/samples/conway/ITConway.png</include>
 									</includes>
 								</resource>

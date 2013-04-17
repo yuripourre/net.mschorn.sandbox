@@ -123,4 +123,15 @@ net.mschorn.sandbox
 
   * {{{./jnlps/lwjgl/deprecated/texturedvbo.jnlp}Webstart}}
 
-  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deprecated/samples/texture}Source}}  
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deprecated/samples/texture}Source}}
+
+
+** [LWJGL] Fixed Function Cube VBO (deprecated)
+
+[./images/lwjgl/deprecated/samples/cube/ITCubeVBO.png] [LWJGL] Fixed Function Cube VBO
+
+  <<Requirements:>> Java 7, OpenGL 3.2
+
+  * {{{./jnlps/lwjgl/deprecated/cubevbo.jnlp}Webstart}}
+
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deprecated/samples/cube}Source}}  
