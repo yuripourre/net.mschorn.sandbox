@@ -1,5 +1,5 @@
 /*
- * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
+ * Copyright 2012 - 2013, Michael Schorn (me@mschorn.net). All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
@@ -28,7 +28,6 @@ package net.mschorn.sandbox.lwjgl.deferred.samples.shading;
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.GL_COLOR_BUFFER_BIT;
 import static org.lwjgl.opengl.GL11.GL_DEPTH_BUFFER_BIT;
-import static org.lwjgl.opengl.GL11.GL_FLOAT;
 import static org.lwjgl.opengl.GL11.GL_LINEAR;
 import static org.lwjgl.opengl.GL11.GL_ONE;
 import static org.lwjgl.opengl.GL11.GL_REPEAT;
@@ -36,7 +35,6 @@ import static org.lwjgl.opengl.GL11.GL_TEXTURE_MAG_FILTER;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_MIN_FILTER;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_WRAP_S;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_WRAP_T;
-import static org.lwjgl.opengl.GL11.GL_TRIANGLE_STRIP;
 import static org.lwjgl.opengl.GL11.glBlendFunc;
 import static org.lwjgl.opengl.GL11.glClear;
 import static org.lwjgl.opengl.GL11.glDisable;
@@ -46,6 +44,8 @@ import static org.lwjgl.opengl.GL20.GL_FRAGMENT_SHADER;
 import static org.lwjgl.opengl.GL20.GL_VERTEX_SHADER;
 import net.mschorn.sandbox.lwjgl.tools.buffer.IBO;
 import net.mschorn.sandbox.lwjgl.tools.buffer.VBO;
+import net.mschorn.sandbox.lwjgl.tools.geometry.Attribute;
+import net.mschorn.sandbox.lwjgl.tools.geometry.Geometry;
 import net.mschorn.sandbox.lwjgl.tools.geometry.Quad;
 import net.mschorn.sandbox.lwjgl.tools.light.Light;
 import net.mschorn.sandbox.lwjgl.tools.shader.Program;
@@ -93,14 +93,14 @@ public final class LightPass {
         fs = new Shader(GL_FRAGMENT_SHADER, getClass().getResourceAsStream(LIGHT_FS));
         p = new Program(vs, fs);
 
-        final Quad quad = new Quad();
-        ibo = new IBO(quad.getIndices(), GL_STATIC_DRAW);
-        vbo = new VBO(quad.getAttributes(), GL_STATIC_DRAW);
-        vao = new VAO(GL_TRIANGLE_STRIP, quad.getIndices().size(), ibo, vbo);
+        final Geometry geometry = new Quad();
+        ibo = new IBO(geometry.getIndices(), GL_STATIC_DRAW);
+        vbo = new VBO(geometry.getAttributes(), GL_STATIC_DRAW);
+        vao = new VAO(geometry.getMode().getGlMode(), geometry.getIndices().size(), ibo, vbo);
 
-        vao.addVertexAttribute(0, 3, GL_FLOAT, false, 8 * 4, 0 * 4);
-        vao.addVertexAttribute(1, 2, GL_FLOAT, false, 8 * 4, 3 * 4);
-        vao.addVertexAttribute(2, 3, GL_FLOAT, false, 8 * 4, 5 * 4);
+        vao.addVertexAttribute(0, geometry.getAttributeDescriptor(Attribute.V));
+        vao.addVertexAttribute(1, geometry.getAttributeDescriptor(Attribute.VT));
+        vao.addVertexAttribute(2, geometry.getAttributeDescriptor(Attribute.VN));
 
     }
 

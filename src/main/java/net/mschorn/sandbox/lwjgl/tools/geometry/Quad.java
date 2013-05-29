@@ -1,5 +1,5 @@
 /*
- * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
+ * Copyright 2012 - 2013, Michael Schorn (me@mschorn.net). All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
@@ -25,12 +25,16 @@
 
 package net.mschorn.sandbox.lwjgl.tools.geometry;
 
+import static org.lwjgl.opengl.GL11.GL_FLOAT;
+
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
-public class Quad {
+public class Quad implements Geometry {
 
     private static final Integer[] QUAD_IBO = new Integer[] {
 
@@ -48,7 +52,27 @@ public class Quad {
 
     };
 
+    private final Map<Attribute, Descriptor> descriptors = new HashMap<>();
 
+
+    public Quad() {
+
+        descriptors.put(Attribute.V, new Descriptor(3, GL_FLOAT, false, 8 * 4, 0 * 4));
+        descriptors.put(Attribute.VT, new Descriptor(2, GL_FLOAT, false, 8 * 4, 3 * 4));
+        descriptors.put(Attribute.VN, new Descriptor(3, GL_FLOAT, false, 8 * 4, 5 * 4));
+
+    }
+
+
+    @Override
+    public final Mode getMode() {
+
+        return Mode.TRIANGLE_STRIP;
+
+    }
+
+
+    @Override
     public final List<Integer> getIndices() {
 
         return Collections.unmodifiableList(Arrays.asList(QUAD_IBO));
@@ -56,9 +80,18 @@ public class Quad {
     }
 
 
+    @Override
     public final List<Float> getAttributes() {
 
         return Collections.unmodifiableList(Arrays.asList(QUAD_VBO));
+
+    }
+
+
+    @Override
+    public final Descriptor getAttributeDescriptor(final Attribute attribute) {
+
+        return descriptors.get(attribute);
 
     }
 

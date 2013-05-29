@@ -1,5 +1,5 @@
 /*
- * Copyright 2012, Michael Schorn (me@mschorn.net). All rights reserved.
+ * Copyright 2012 - 2013, Michael Schorn (me@mschorn.net). All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are permitted
  * provided that the following conditions are met:
@@ -38,33 +38,12 @@ import java.util.Map;
 
 import net.mschorn.sandbox.lwjgl.tools.buffer.IBO;
 import net.mschorn.sandbox.lwjgl.tools.buffer.VBO;
+import net.mschorn.sandbox.lwjgl.tools.geometry.Descriptor;
 
 
 public class VAO {
 
-    private static final class VertexAttribute {
-
-        private final int size;
-        private final int type;
-        private final boolean normalized;
-        private final int stride;
-        private final int pointer;
-
-
-        private VertexAttribute(final int size, final int type, final boolean normalized, final int stride, final int pointer) {
-
-            this.size = size;
-            this.type = type;
-            this.normalized = normalized;
-            this.stride = stride;
-            this.pointer = pointer;
-
-        }
-
-    }
-
-
-    private final Map<Integer, VertexAttribute> attributes = new HashMap<Integer, VertexAttribute>();
+    private final Map<Integer, Descriptor> descriptors = new HashMap<Integer, Descriptor>();
 
     private final int mode;
     private final int size;
@@ -84,9 +63,9 @@ public class VAO {
     }
 
 
-    public final void addVertexAttribute(final int index, final int size, final int type, final boolean normalized, final int stride, final int pointer) {
+    public final void addVertexAttribute(final int index, final Descriptor descriptor) {
 
-        attributes.put(index, new VertexAttribute(size, type, normalized, stride, pointer));
+        descriptors.put(index, descriptor);
 
     }
 
@@ -99,12 +78,12 @@ public class VAO {
 
         vbo.glBind();
 
-        for (final int i : attributes.keySet()) {
+        for (final int i : descriptors.keySet()) {
 
-            final VertexAttribute attribute = attributes.get(i);
+            final Descriptor descriptor = descriptors.get(i);
 
             glEnableVertexAttribArray(i);
-            glVertexAttribPointer(i, attribute.size, attribute.type, attribute.normalized, attribute.stride, attribute.pointer);
+            glVertexAttribPointer(i, descriptor.getSize(), descriptor.getType(), descriptor.isNormalized(), descriptor.getStride(), descriptor.getPointer());
 
         }
 
