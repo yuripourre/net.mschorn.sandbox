@@ -64,11 +64,11 @@ void main() {
 	
 	vec3 vectorFace0Normal = normalize(cross((v4 - v0).xyz, (v2 - v0).xyz));
 	vec3 vectorFace0Light = normalize(v4 + v2 + v0 - 3 * light.position).xyz; 
-    float dotFace0Light = dot(vectorFace0Normal, vectorFace0Light);
+	float dotFace0Light = dot(vectorFace0Normal, vectorFace0Light);
    
- 	vec4 movedVertex0 = mvp.p * (v0 + vectorVertex0Light * shadowVolumeLength); 
-    vec4 movedVertex2 = mvp.p * (v2 + vectorVertex2Light * shadowVolumeLength); 
-    vec4 movedVertex4 = mvp.p * (v4 + vectorVertex4Light * shadowVolumeLength); 
+	vec4 movedVertex0 = mvp.p * (v0 + vectorVertex0Light * shadowVolumeLength); 
+	vec4 movedVertex2 = mvp.p * (v2 + vectorVertex2Light * shadowVolumeLength); 
+	vec4 movedVertex4 = mvp.p * (v4 + vectorVertex4Light * shadowVolumeLength); 
 
 	
 	if (dotFace0Light > 0.0) {
@@ -81,17 +81,17 @@ void main() {
 		vec4 vp2 = mvp.mvp * gl_in[2].gl_Position;
 		vec4 vp4 = mvp.mvp * gl_in[4].gl_Position;
 	
-	    vec3 vectorFace1Normal = normalize(cross((v2 - v0).xyz, (v1 - v0).xyz));
-    	vec3 vectorFace2Normal = normalize(cross((v4 - v2).xyz, (v3 - v2).xyz));
-    	vec3 vectorFace3Normal = normalize(cross((v0 - v4).xyz, (v5 - v4).xyz));
+		vec3 vectorFace1Normal = normalize(cross((v2 - v0).xyz, (v1 - v0).xyz));
+		vec3 vectorFace2Normal = normalize(cross((v4 - v2).xyz, (v3 - v2).xyz));
+		vec3 vectorFace3Normal = normalize(cross((v0 - v4).xyz, (v5 - v4).xyz));
 	
-	   	vec3 vectorFace1Light = normalize(((v2 + v1 + v0) - 3 * light.position).xyz);
-    	vec3 vectorFace2Light = normalize(((v4 + v3 + v2) - 3 * light.position).xyz);
-    	vec3 vectorFace3Light = normalize(((v5 + v4 + v0) - 3 * light.position).xyz); 
+		vec3 vectorFace1Light = normalize(((v2 + v1 + v0) - 3 * light.position).xyz);
+		vec3 vectorFace2Light = normalize(((v4 + v3 + v2) - 3 * light.position).xyz);
+		vec3 vectorFace3Light = normalize(((v5 + v4 + v0) - 3 * light.position).xyz); 
 	
-	  	float dotFace1Light = dot(vectorFace1Normal, vectorFace1Light);
-    	float dotFace2Light = dot(vectorFace2Normal, vectorFace2Light);
-    	float dotFace3Light = dot(vectorFace3Normal, vectorFace3Light);
+		float dotFace1Light = dot(vectorFace1Normal, vectorFace1Light);
+		float dotFace2Light = dot(vectorFace2Normal, vectorFace2Light);
+		float dotFace3Light = dot(vectorFace3Normal, vectorFace3Light);
 
 	
 		gl_Position = vp0;
