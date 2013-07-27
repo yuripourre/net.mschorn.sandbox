@@ -50,7 +50,7 @@ public class Point implements Comparable<Point> {
 
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
 
         final int prime = 31;
         int result = 1;
@@ -63,7 +63,7 @@ public class Point implements Comparable<Point> {
 
 
     @Override
-    public boolean equals(final Object obj) {
+    public final boolean equals(final Object obj) {
 
         if (this == obj)
             return true;
@@ -90,7 +90,7 @@ public class Point implements Comparable<Point> {
 
 
     @Override
-    public int compareTo(final Point other) {
+    public final int compareTo(final Point other) {
 
         if (this.x < other.x)
             return -1;

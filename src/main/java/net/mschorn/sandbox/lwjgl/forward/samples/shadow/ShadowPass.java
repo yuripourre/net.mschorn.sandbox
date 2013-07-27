@@ -46,7 +46,7 @@ import net.mschorn.sandbox.lwjgl.tools.state.VAO;
 import net.mschorn.sandbox.lwjgl.tools.texture.Texture;
 
 
-public class ShadowPass implements LWJGLLifecycle {
+public final class ShadowPass implements LWJGLLifecycle {
 
     private static final String PASSTHRU_VS = "passthru.vs.glsl";
     private static final String PASSTHRU_FS = "passthru.fs.glsl";

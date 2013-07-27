@@ -44,7 +44,7 @@ import net.mschorn.sandbox.lwjgl.tools.texture.Sampler;
 import net.mschorn.sandbox.lwjgl.tools.texture.Texture;
 
 
-public class RenderPass implements LWJGLLifecycle {
+public final class RenderPass implements LWJGLLifecycle {
 
     private static final String TEACUP_IMAGE_DIFFUSE = "net/mschorn/sandbox/resources/images/teacup.diffuse.png";
     private static final String TEACUP_IMAGE_SPECULAR = "net/mschorn/sandbox/resources/images/teacup.specular.png";

@@ -110,7 +110,7 @@ public class Adjacency implements Geometry {
 
 
     @Override
-    public Mode getMode() {
+    public final Mode getMode() {
 
         return Mode.TRIANGLES_ADJACENCY;
 
@@ -118,7 +118,7 @@ public class Adjacency implements Geometry {
 
 
     @Override
-    public List<Integer> getIndices() {
+    public final List<Integer> getIndices() {
 
         return Collections.unmodifiableList(indices);
 
@@ -126,7 +126,7 @@ public class Adjacency implements Geometry {
 
 
     @Override
-    public List<Float> getAttributes() {
+    public final List<Float> getAttributes() {
 
         return geometry.getAttributes();
 
@@ -134,7 +134,7 @@ public class Adjacency implements Geometry {
 
 
     @Override
-    public Descriptor getAttributeDescriptor(final Attribute attribute) {
+    public final Descriptor getAttributeDescriptor(final Attribute attribute) {
 
         return geometry.getAttributeDescriptor(attribute);
 
