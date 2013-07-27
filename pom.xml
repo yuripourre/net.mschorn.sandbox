@@ -322,6 +322,7 @@ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 										<include>jogl/basecode/ITBasecode.png</include>
 										<include>lwjgl/basecode/ITBasecode.png</include>
 										<include>lwjgl/forward/samples/shading/ITForwardShading.png</include>
+										<include>lwjgl/forward/samples/shadow/ITShadowVolume.png</include>
 										<include>lwjgl/deferred/samples/shading/ITDeferredShading.png</include>
 										<include>lwjgl/deprecated/samples/vbo/ITSimpleVBO.png</include>
 										<include>lwjgl/deprecated/samples/texture/ITTexturedVBO.png</include>

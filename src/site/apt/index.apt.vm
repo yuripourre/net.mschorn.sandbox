@@ -68,6 +68,18 @@ net.mschorn.sandbox
   * {{{https://www.youtube.com/watch?v=pTU6_xQVCeY}Youtube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/samples/shading}Source}}
+  
+  
+** [LWJGL] Shadow volume sample
+
+[./images/lwjgl/forward/samples/shadow/ITShadowVolume.png] [LWJGL] Shadow volume sample
+
+  <<Requirements:>> Java 7, OpenGL 4.2\
+  <<Keyword-Bingo:>> VS, GS, FS, VAO, IBO, VBO, UBO, sampler, texturing, per pixel lighting
+
+  * {{{./jnlps/lwjgl/forward/shadow.jnlp}Webstart}}
+
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/samples/shadow}Source}}
 
 
 ** [LWJGL] Deferred shading sample
