@@ -68,6 +68,8 @@ net.mschorn.sandbox
   * {{{https://www.youtube.com/watch?v=pTU6_xQVCeY}Youtube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/samples/shading}Source}}
+
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/resources/net/mschorn/sandbox/lwjgl/forward/samples/shading}Shader}}
   
   
 ** [LWJGL] Shadow volume sample
@@ -80,6 +82,8 @@ net.mschorn.sandbox
   * {{{./jnlps/lwjgl/forward/shadow.jnlp}Webstart}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/forward/samples/shadow}Source}}
+
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/resources/net/mschorn/sandbox/lwjgl/forward/samples/shadow}Shader}}
 
 
 ** [LWJGL] Deferred shading sample
@@ -95,6 +99,8 @@ net.mschorn.sandbox
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/deferred/samples/shading}Source}}
 
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/resources/net/mschorn/sandbox/lwjgl/deferred/samples/shading}Shader}}
+
 
 ** [LWJGL] Conway's Game of Life
 
@@ -108,6 +114,8 @@ net.mschorn.sandbox
   * {{{https://www.youtube.com/watch?v=pkvoQ9Nxpg4}Youtube}}
 
   * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/java/net/mschorn/sandbox/lwjgl/gpgpu/samples/conway}Source}}
+
+  * {{{https://github.com/mschorn/net.mschorn.sandbox/tree/master/src/main/resources/net/mschorn/sandbox/lwjgl/gpgpu/samples/conway}Shader}}
 
 
 ===
