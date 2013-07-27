@@ -26,30 +26,71 @@
 package net.mschorn.sandbox.lwjgl.tools.geometry;
 
 
-import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
-import static org.lwjgl.opengl.GL11.GL_TRIANGLE_STRIP;
-import static org.lwjgl.opengl.GL32.GL_TRIANGLES_ADJACENCY;
+public class Edge {
+
+    private final Point p1;
+    private final Point p2;
 
 
-public enum Mode {
+    public Edge(final Point p1, final Point p2) {
 
-    TRIANGLES(GL_TRIANGLES),
-    TRIANGLE_STRIP(GL_TRIANGLE_STRIP),
-    TRIANGLES_ADJACENCY(GL_TRIANGLES_ADJACENCY);
+        if (p1.compareTo(p2) <= 0) {
 
-    private final int glMode;
+            this.p1 = p1;
+            this.p2 = p2;
 
+        } else {
 
-    private Mode(final int glMode) {
+            this.p1 = p2;
+            this.p2 = p1;
 
-        this.glMode = glMode;
+        }
 
     }
 
 
-    public int getGlMode() {
+    @Override
+    public int hashCode() {
 
-        return glMode;
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((p1 == null) ? 0 : p1.hashCode());
+        result = prime * result + ((p2 == null) ? 0 : p2.hashCode());
+        return result;
+
+    }
+
+
+    @Override
+    public boolean equals(final Object obj) {
+
+        if (this == obj)
+            return true;
+
+        if (obj == null)
+            return false;
+
+        if (getClass() != obj.getClass())
+            return false;
+
+        final Edge other = (Edge) obj;
+        if (p1 == null) {
+
+            if (other.p1 != null)
+                return false;
+
+        } else if (!p1.equals(other.p1))
+            return false;
+
+        if (p2 == null) {
+
+            if (other.p2 != null)
+                return false;
+
+        } else if (!p2.equals(other.p2))
+            return false;
+
+        return true;
 
     }
 
